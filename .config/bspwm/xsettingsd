@@ -1,8 +1,8 @@
 ## Copyright (C) 2020-2024 Aditya Shakya <adi1090x@gmail.com>
 
-Net/ThemeName "Andromeda"
-Net/IconThemeName "Qogir-ubuntu-dark"
-Gtk/CursorThemeName "Qogir-ubuntu"
+Net/ThemeName "Juno"
+Net/IconThemeName "Qogir-manjaro-dark"
+Gtk/CursorThemeName "Qogir-manjaro-dark"
 Net/EnableEventSounds "0"
 Net/EnableInputFeedbackSounds "0"
 Xft/DPI "-1"
