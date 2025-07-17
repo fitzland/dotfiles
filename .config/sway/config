@@ -1,0 +1,447 @@
+# Sway Configuration
+# ~/.config/sway/config
+
+### Variables
+set $mod Mod4
+set $alt Mod1
+
+##-- Fonts (Global) ----------------------
+font pango:JetBrains Mono Nerd Font 12
+
+### Include External Configs
+include ~/.config/sway/sway-idle
+include ~/.config/sway/sway-input
+include ~/.config/sway/sway-output
+include ~/.config/sway/sway-modes
+include ~/.config/sway/sway-theme
+
+### General Settings
+default_orientation horizontal
+swaybg_command swaybg
+swaynag_command swaynag
+workspace_layout default
+xwayland enable
+focus_follows_mouse yes
+floating_modifier $mod normal
+mouse_warping none
+popup_during_fullscreen smart
+workspace_auto_back_and_forth yes
+focus_on_window_activation smart
+show_marks yes
+
+### Application Variables
+# Terminal applications
+set $term alacritty
+set $alacritty ~/.config/sway/scripts/alacritty
+set $foot ~/.config/sway/scripts/foot
+set $kitty ~/.config/sway/scripts/kitty
+
+# System utilities
+set $volume ~/.config/sway/scripts/volume
+set $backlight ~/.config/sway/scripts/brightness
+set $screenshot ~/.config/sway/scripts/screenshot
+set $lockscreen ~/.config/sway/scripts/lockscreen
+set $wlogout ~/.config/sway/scripts/wlogout
+set $colorpicker ~/.config/sway/scripts/colorpicker
+
+# GUI applications
+set $files thunar
+set $editor geany
+set $browser firefox
+
+# Rofi scripts
+set $rofi_bluetooth ~/.config/sway/scripts/rofi_bluetooth
+set $rofi_launcher ~/.config/sway/scripts/rofi_launcher
+set $rofi_music ~/.config/sway/scripts/rofi_music
+set $rofi_powermenu ~/.config/sway/scripts/rofi_powermenu
+set $rofi_runner ~/.config/sway/scripts/rofi_runner
+set $rofi_screenshot ~/.config/sway/scripts/rofi_screenshot
+set $rofi_network ~/.config/sway/scripts/rofi_network
+set $rofi_asroot ~/.config/sway/scripts/rofi_asroot
+
+# Wofi scripts
+set $wofi_menu ~/.config/sway/scripts/wofi_menu
+set $wofi_powermenu ~/.config/sway/scripts/wofi_powermenu
+
+set $open_in_alacritty alacritty --config-file ~/.config/sway/alacritty/alacritty.toml
+
+##-- Startup Programs --------------------
+exec_always ~/.config/sway/scripts/startup
+#exec_always ~/.config/sway/scripts/clamshell
+
+##-- Keybindings -------------------------
+
+# -- Terminal : alacritty --
+bindsym $mod+Return 			exec alacritty
+#bindsym $mod+Shift+Return 		exec $alacritty -f
+#bindsym $mod+$alt+Return 		exec $alacritty -F
+
+# -- Terminal :foot --
+bindsym $mod+$alt+Return 		exec $foot
+#bindsym $mod+Shift+Return 		exec $foot -f
+#bindsym $mod+$alt+Return 		exec $foot -s
+#bindsym $mod+t 				exec $foot -F
+
+# -- Terminal : kitty --
+bindsym $mod+Control+Return		exec $kitty
+#bindsym $mod+Shift+Return 		exec $kitty -f
+#bindsym $mod+$alt+Return 		exec $kitty -F
+
+# -- GUI Apps --
+bindsym $mod+Shift+f 			exec $files
+bindsym $mod+Shift+e 			exec $editor
+bindsym $mod+Shift+w 			exec $browser
+
+# -- CLI Apps --
+bindsym $alt+Control+v 			exec --no-startup-id "$open_in_alacritty -e vim"
+bindsym $alt+Control+r 			exec --no-startup-id "$open_in_alacritty -e ranger"
+bindsym $alt+Control+h 			exec --no-startup-id "$open_in_alacritty -e htop"
+
+# -- Rofi --
+bindsym $mod+slash 				exec $rofi_launcher
+bindsym $mod+backslash			exec $rofi_runner
+bindsym $mod+d	 				exec $rofi_launcher
+bindsym $mod+r	 				exec $rofi_asroot
+bindsym $mod+n 					exec $rofi_network
+bindsym $mod+x 					exec $rofi_powermenu
+bindsym $mod+m 					exec $rofi_music
+bindsym $mod+s 					exec $rofi_screenshot
+bindsym $mod+b 					exec $rofi_bluetooth
+
+# -- Wofi --
+bindsym $mod+Shift+slash		exec $wofi_menu
+#bindsym $mod+d	 				exec $wofi_menu
+bindsym $mod+Shift+x			exec $wofi_powermenu
+
+## Function Key Applications
+# Development
+bindsym $mod+F2 exec code
+bindsym $mod+Shift+F2 exec xed
+
+# Office
+bindsym $mod+F3 exec lowriter
+bindsym $mod+Shift+F3 exec localc
+
+# Graphics
+bindsym $mod+F4 exec inkscape
+bindsym $mod+Shift+F4 exec gimp
+
+# Music
+bindsym $mod+F5 exec spotify
+bindsym $mod+Shift+F5 exec quodlibet
+
+# Utilities
+bindsym $mod+F6 exec gnucash
+bindsym $mod+Shift+F6 exec meld
+
+# Password Management
+bindsym $mod+F7 exec keepassxc ~/Dropbox/journal/home.kdbx
+bindsym $mod+Shift+F7 exec keepassxc ~/Dropbox/journal/work.kdbx
+
+# File Management
+bindsym $mod+F8 exec thunar
+bindsym $mod+Shift+F8 exec ghostwriter
+
+# Browsers
+bindsym $mod+F10 exec firefox-developer-edition
+bindsym $mod+Shift+F10 exec firefox-developer-edition --private-window
+bindsym $mod+F11 exec microsoft-edge-stable --profile-directory='Profile 1'
+bindsym $mod+Shift+F11 exec microsoft-edge-stable --profile-directory='Default'
+bindsym $mod+F12 exec google-chrome-stable --profile-directory='Default'
+bindsym $mod+Shift+F12 exec google-chrome-stable --profile-directory='Profile 1'
+
+# -- Misc --
+bindsym $mod+p 					exec $colorpicker
+#bindsym $mod+n 				exec nm-connection-editor
+#bindsym $mod+x 				exec $wlogout
+
+# -- Function keys --
+bindsym XF86MonBrightnessUp 	exec "$backlight --inc"
+bindsym XF86MonBrightnessDown 	exec "$backlight --dec"
+bindsym XF86AudioRaiseVolume 	exec "$volume --inc"
+bindsym XF86AudioLowerVolume 	exec "$volume --dec"
+bindsym XF86AudioMute 			exec "$volume --toggle"
+bindsym XF86AudioMicMute 		exec "$volume --toggle-mic"
+bindsym XF86AudioNext 			exec "mpc next"
+bindsym XF86AudioPrev 			exec "mpc prev"
+bindsym XF86AudioPlay 			exec "mpc toggle"
+bindsym XF86AudioStop 			exec "mpc stop"
+
+# -- Screenshots --
+bindsym Print 					exec "$screenshot --now"
+bindsym $alt+Print 				exec "$screenshot --in5"
+bindsym Shift+Print 			exec "$screenshot --in10"
+bindsym Control+Print 			exec "$screenshot --win"
+bindsym $mod+Print 				exec "$screenshot --area"
+
+# -- Lockscreen --
+bindsym $alt+Control+l 			exec "$lockscreen"
+
+## -- Sway --
+
+## Kill focused window
+##
+bindsym $mod+q kill
+bindsym $mod+c kill
+
+#------
+
+## Send Notification
+##
+set $send-notify exec --no-startup-id notify-send -u low -h string:x-canonical-private-synchronous:swayconfig
+
+## Splitting containers
+##
+## split in horizontal orientation
+bindsym $mod+h split horizontal, $send-notify 'Split Horizontally'
+## split in vertical orientation
+bindsym $mod+v split vertical, $send-notify 'Split Vertically'
+## toggle split
+bindsym $mod+g split toggle, $send-notify 'Split Mode'
+
+#------
+
+## Manipulating layout
+##
+## change container layout (stacked, tabbed, toggle split)
+## Set stacking layout
+bindsym $mod+Shift+s layout stacking, $send-notify 'Layout - Stacking'
+## Set tabbed layout
+bindsym $mod+Shift+t layout tabbed, $send-notify 'Layout - Tabbed'
+## Set default layout
+bindsym $mod+Shift+d layout default, $send-notify 'Layout - Default'
+## Toggle between stacking/tabbed/split:
+bindsym $mod+Shift+l layout toggle, $send-notify 'Cycling Layouts'
+## Toggle between horizontal/vertical:
+bindsym $mod+Shift+v layout toggle split, $send-notify 'Layout - Hor/Vert'
+## Toggle fullscreen
+bindsym $mod+f fullscreen toggle, $send-notify 'Toggled Fullscreen'
+## Toggle floating/tiling
+bindsym $mod+space floating toggle, $send-notify 'Toggled Floating Mode'
+
+#------
+
+## Focusing containers
+##
+## Sets focus to the nearest container in the given direction.
+#bindsym $mod+h focus left
+#bindsym $mod+j focus down
+#bindsym $mod+k focus up
+#bindsym $mod+l focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+## Sets focus to the parent container of the current container.
+bindsym $mod+a focus parent
+## The opposite of `focus parent`, sets the focus to the last focused child container.
+bindsym $mod+z focus child
+## Automatically sets focus to the adjacent container.
+bindsym $mod+Tab focus next
+## Toggles focus between floating/tiling containers.
+bindsym $mod+Shift+space focus mode_toggle
+
+#------
+
+## Moving containers
+##
+## move focused window in the given direction.
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+## Move floating container to the center of all outputs (floating only)
+bindsym $mod+$alt+c move absolute position center
+## Move container to the current position of the cursor (floating only)
+bindsym $mod+$alt+p move position mouse
+
+#------
+
+## Resizing containers/windows
+##
+bindsym $mod+$alt+Left resize shrink width 10 px or 10 ppt
+bindsym $mod+$alt+Down resize grow height 10 px or 10 ppt
+bindsym $mod+$alt+Up resize shrink height 10 px or 10 ppt
+bindsym $mod+$alt+Right resize grow width 10 px or 10 ppt
+
+#------
+
+## Sticky floating windows (floating only)
+##
+bindsym $mod+o sticky toggle, $send-notify 'Toggled Sticky'
+
+#------
+
+## Changing border style
+##
+bindsym $mod+y border toggle, $send-notify 'Toggled Borders'
+
+#------
+
+## Scratchpad
+##
+## Make the currently focused window a scratchpad
+bindsym $mod+minus move scratchpad, $send-notify 'Scratchpad'
+## Show the first scratchpad window
+bindsym $mod+Shift+minus scratchpad show
+
+#------
+
+## reload the configuration file
+bindsym $mod+Shift+c reload, $send-notify 'Configuration Reloaded!'
+## quit sway session
+bindsym $mod+Shift+q exit
+
+#------
+
+## Changing (named) workspaces/moving to workspaces
+##
+## Define names for default workspaces for which we configure key bindings later on.
+## We use variables to avoid repeating the names in multiple places.
+set $ws1 "1:term"
+set $ws2 "2:code"
+set $ws3 "3:ofc"
+set $ws4 "4:grfx"
+set $ws5 "5:util"
+set $ws6 "6:web"
+set $ws7 "7:chat"
+set $ws8 "8:file"
+set $ws9 "9:music"
+set $ws0 "10:util"
+
+# Monitor assignments
+set $firstMonitor "DP-2"
+set $secondMonitor "DP-3"
+
+# Workspace to output assignments
+workspace $ws1 output $firstMonitor
+workspace $ws2 output $firstMonitor
+workspace $ws3 output $firstMonitor
+workspace $ws4 output $firstMonitor
+workspace $ws5 output $firstMonitor
+workspace $ws6 output $secondMonitor
+workspace $ws7 output $secondMonitor
+workspace $ws8 output $secondMonitor
+workspace $ws9 output $secondMonitor
+workspace $ws0 output $secondMonitor
+
+## switch to workspace (number row)
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws0
+
+# Switch to workspace (numpad)
+bindsym $mod+KP_1 workspace $ws1
+bindsym $mod+KP_2 workspace $ws2
+bindsym $mod+KP_3 workspace $ws3
+bindsym $mod+KP_4 workspace $ws4
+bindsym $mod+KP_5 workspace $ws5
+bindsym $mod+KP_6 workspace $ws6
+bindsym $mod+KP_7 workspace $ws7
+bindsym $mod+KP_8 workspace $ws8
+bindsym $mod+KP_9 workspace $ws9
+bindsym $mod+KP_0 workspace $ws0
+
+# Switch to workspace (numpad with numlock)
+bindsym $mod+KP_End workspace $ws1
+bindsym $mod+KP_Down workspace $ws2
+bindsym $mod+KP_Next workspace $ws3
+bindsym $mod+KP_Left workspace $ws4
+bindsym $mod+KP_Begin workspace $ws5
+bindsym $mod+KP_Right workspace $ws6
+bindsym $mod+KP_Home workspace $ws7
+bindsym $mod+KP_Up workspace $ws8
+bindsym $mod+KP_Prior workspace $ws9
+bindsym $mod+KP_Insert workspace $ws0
+
+## Move Container to Workspace
+# Move and follow (number row)
+bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws0; workspace $ws0
+
+# Move and follow (numpad)
+bindsym $mod+Shift+KP_1 move container to workspace $ws1; workspace $ws1
+bindsym $mod+Shift+KP_2 move container to workspace $ws2; workspace $ws2
+bindsym $mod+Shift+KP_3 move container to workspace $ws3; workspace $ws3
+bindsym $mod+Shift+KP_4 move container to workspace $ws4; workspace $ws4
+bindsym $mod+Shift+KP_5 move container to workspace $ws5; workspace $ws5
+bindsym $mod+Shift+KP_6 move container to workspace $ws6; workspace $ws6
+bindsym $mod+Shift+KP_7 move container to workspace $ws7; workspace $ws7
+bindsym $mod+Shift+KP_8 move container to workspace $ws8; workspace $ws8
+bindsym $mod+Shift+KP_9 move container to workspace $ws9; workspace $ws9
+bindsym $mod+Shift+KP_0 move container to workspace $ws0; workspace $ws0
+
+# Move and follow (numpad with numlock)
+bindsym $mod+Shift+KP_End move container to workspace $ws1; workspace $ws1
+bindsym $mod+Shift+KP_Down move container to workspace $ws2; workspace $ws2
+bindsym $mod+Shift+KP_Next move container to workspace $ws3; workspace $ws3
+bindsym $mod+Shift+KP_Left move container to workspace $ws4; workspace $ws4
+bindsym $mod+Shift+KP_Begin move container to workspace $ws5; workspace $ws5
+bindsym $mod+Shift+KP_Right move container to workspace $ws6; workspace $ws6
+bindsym $mod+Shift+KP_Home move container to workspace $ws7; workspace $ws7
+bindsym $mod+Shift+KP_Up move container to workspace $ws8; workspace $ws8
+bindsym $mod+Shift+KP_Prior move container to workspace $ws9; workspace $ws9
+bindsym $mod+Shift+KP_Insert move container to workspace $ws0; workspace $ws0
+
+##-- Rules -------------------------------
+#assign [app_id="foot"] → workspace number 1
+#assign [class="firefox"] → workspace number 2
+#assign [app_id="thunar"] → workspace number 3
+#assign [app_id="geany"] → workspace number 4
+
+## Application Assignments
+assign [app_id="(?i)X-terminal-emulator|Gnome-terminal|xterm"] $ws1
+assign [app_id="alacritty"] $ws1
+assign [app_id="(?i)code|xed|code-oss|com.visualstudio.code"] $ws2
+assign [class="Code"] $ws2
+for_window [app_id="(?i)code|xed|code-oss"] workspace $ws2
+for_window [class="Code"] workspace $ws2
+assign [app_id="(?i)Soffice|Gnucash|libreoffice-*"] $ws3
+assign [app_id="(?i)gimp*|inkscape"] $ws4
+assign [app_id="(?i)firefox|keepassxc"] $ws5
+assign [class="Google-chrome"] $ws6
+assign [app_id="(?i)google-chrome-stable|microsoft-edge"] $ws6
+for_window [class="Google-chrome"] workspace $ws6
+assign [app_id="(?i)thunar|nautilus|dolphin"] $ws8
+assign [app_id="(?i)spotify"] $ws9
+assign [class="Spotify|spotify"] $ws9
+assign [app_id="TelegramDesktop|Discord"] $ws0
+
+# Special handling for Spotify
+for_window [class="Spotify"] move to workspace $ws9
+
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [app_id="alacritty-float|foot-float|kitty-float"] floating enable
+for_window [app_id="yad|nm-connection-editor|pavucontrol"] floating enable
+for_window [app_id="xfce-polkit|kvantummanager|qt5ct"] floating enable
+for_window [app_id="io.calamares.calamares"] floating enable
+for_window [title="Archcraft Installer"] floating enable
+for_window [class="Yad|feh|Viewnior|Gpicview|Gimp|MPlayer"] floating enable
+for_window [class="VirtualBox Manager|qemu|Qemu-system-x86_64"] floating enable
+
+## Focus Rules
+for_window [app_id="alacritty|kitty|foot|gnome-terminal|UXTERM"] focus
+for_window [app_id="atom|code|xed|code-oss"] focus
+for_window [app_id="^(?i)libreoffice-*"] focus
+for_window [app_id="(?i)firefox"] focus
+for_window [app_id="(?i)gimp|Gnome-terminal|gnucash|google-chrome|inkscape|keePassXC|Nautilus|Synaptic|thunar"] focus
+for_window [urgent=latest] focus
+
+##-- Misc --------------------------------
+include /etc/sway/config.d/*
