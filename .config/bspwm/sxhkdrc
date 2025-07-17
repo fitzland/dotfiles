@@ -1,0 +1,295 @@
+##==================================================
+## sxhkdrc - BSPWM Keybindings (Cleaned & Organized)
+## Based on config by Aditya Shakya <adi1090x@gmail.com>
+##==================================================
+
+##==============================
+## 1. Application Launchers
+##==============================
+
+# Search
+super + F1
+    catfish
+
+# Editors
+super + {_,shift} + F2
+    {code,alacritty --config-file ~/.config/alacritty/alacritty.toml -e micro}
+
+# Writer / Calc
+super + {_,shift} + F3
+    {lowriter,localc}
+
+# Graphix Apps
+super + {_,shift} + F4
+    {inkscape,gimp}
+
+# Meld (Diff Tool)
+super + F5
+    meld
+
+# GnuCash
+super + F6
+    gnucash
+
+# KeePassXC (with different databases)
+super + {_,shift} + F7
+    keepassxc {$HOME/Dropbox/journal/home.kdbx,keepassxc $HOME/Dropbox/journal/work.kdbx}
+
+# File Managers
+super + {_,shift} + F8
+    {thunar,alacritty --config-file ~/.config/bspwm/alacritty.toml -e ranger}
+
+# Markdown Editors
+super + {_,shift} + F9
+    {ghostwriter,typora}
+
+# Firefox
+super + {_,shift} + F10
+    {firefox-developer-edition,firefox-developer-edition --private-window}
+
+# Microsoft Edge
+super + {_,shift} + F11
+    {microsoft-edge-stable --profile-directory='Profile 1',microsoft-edge-stable --profile-directory='Default'}
+
+# Google Chrome
+super + {_,shift} + F12
+    {google-chrome-stable --profile-directory='Default',google-chrome-stable --profile-directory='Profile 1'}
+
+##---------- Keybindings for bspwm ----------##
+
+# Terminal (alacritty)
+super + Return
+    bspterm
+
+# Terminal (floating / fullscreen)
+super + shift + Return
+    bspterm --float
+
+# Terminal (kitty)
+super + ctrl + Return
+    bspkitty
+
+# Terminal Tools
+ctrl + alt + {v,r,h}
+    alacritty --config-file ~/.config/bspwm/alacritty/alacritty.toml -e {vim,ranger,htop}
+
+# Other Utilities
+super + p
+    bspcolorpicker
+ctrl + alt + m
+    bspmusic
+ctrl + alt + l
+    betterlockscreen --lock
+
+##==============================
+## 2. Rofi Launchers & Menus
+##==============================
+
+# App Launcher / Window Switcher
+super + {_,shift} + slash
+    {rofi_launcher,rofi_windows}
+
+# Runner / Themes
+super + {_,shift} + backslash
+    {rofi_runner,rofi_asroot}
+
+# Rofi Applets
+super + {b,m,n,r,s,t,w,x}
+    {rofi_bluetooth,rofi_music,nmd,rofi_asroot,rofi_screenshot,rofi_themes,rofi_windows,rofi_powermenu}
+
+##==============================
+## 3. System Controls
+##==============================
+
+# Screenshots
+Print                  bspscreenshot --now
+alt + Print            bspscreenshot --in5
+shift + Print          bspscreenshot --in10
+ctrl + Print           bspscreenshot --win
+super + Print          bspscreenshot --area
+
+# Brightness
+XF86MonBrightness{Up,Down}
+    bspbrightness{ --inc, --dec}
+
+# Volume
+XF86Audio{RaiseVolume,LowerVolume}
+    bspvolume{ --inc, --dec}
+XF86Audio{Mute,MicMute}
+    bspvolume{ --toggle, --toggle-mic}
+
+# Media Control
+XF86Audio{Next,Prev,Play,Stop}
+    mpc {next,prev,toggle,stop}
+
+##==============================
+## 4. Desktop / Workspace Management
+##==============================
+
+# Hide/Unhide Window
+super + shift + h
+	bspwinmask
+
+# Close App
+super + {_,shift + }c
+	bspc node -{c,k}
+
+# kill window
+ctrl + alt + Escape
+    xkill
+
+# Quit/Restart bspwm
+ctrl + shift + {q,r}
+	bspc {quit,wm -r}
+	
+# Reload Keybindings
+super + Escape
+	pkill -USR1 -x sxhkd
+
+# Switch desktop or Send focused node to another desktop
+#super + {_,shift + }{1-8}
+#	bspc {desktop -f,node -d} '^{1-8}' '--follow'
+
+# focus desktop (workspace) 1-10
+super + {1-9,0}
+	bspc desktop --focus ^{1-9,10}
+super + {KP_1,KP_End}
+    bspc desktop --focus ^1
+super + {KP_2,KP_Down}
+    bspc desktop --focus ^2	
+super + {KP_3,KP_Next}
+	bspc desktop --focus ^3
+super + {KP_4,KP_Left}
+	bspc desktop --focus ^4
+super + {KP_5,KP_Begin}
+	bspc desktop --focus ^5
+super + {KP_6,KP_Right}
+	bspc desktop --focus ^6
+super + {KP_7,KP_Home}
+	bspc desktop --focus ^7
+super + {KP_8,KP_Up}	
+	bspc desktop --focus ^8
+super + {KP_9,KP_Prior}
+	bspc desktop --focus ^9
+super + {KP_0,KP_Insert}
+	bspc desktop --focus ^10
+
+# send to desktop (workspace) 1-10
+super + shift + {1-9,0}
+	bspc node --to-desktop '^{1-9,10}' --follow
+super + shift + {KP_1,KP_End}
+    bspc node --to-desktop '^1' --follow
+super + shift + {KP_2,KP_Down}
+    bspc node --to-desktop '^2' --follow
+super + shift + {KP_3,KP_Next}
+	bspc node --to-desktop '^3' --follow
+super + shift + {KP_4,KP_Left}
+	bspc node --to-desktop '^4' --follow
+super + shift + {KP_5,KP_Begin}
+	bspc node --to-desktop '^5' --follow
+super + shift + {KP_6,KP_Right}
+	bspc node --to-desktop '^6' --follow
+super + shift + {KP_7,KP_Home}
+	bspc node --to-desktop '^7' --follow
+super + shift + {KP_8,KP_Up}
+	bspc node --to-desktop '^8' --follow
+super + shift + {KP_9,KP_Prior}
+	bspc node --to-desktop '^9' --follow
+super + shift + {KP_0,KP_Insert}
+	bspc node --to-desktop '^10' --follow
+
+# Move focus to other monitor
+super + BackSpace
+		bspc monitor -f next
+
+# Move focused node (window) to other monitor
+alt + ctrl + i
+	bspc node -m prev --follow
+
+# Move focused node (window) to other monitor
+alt + ctrl + o
+	bspc node -m next --follow
+
+# Cycle to next/previous OCCUPIED desktop 
+super + period
+    bspc desktop -f next.occupied
+super + comma
+    bspc desktop -f prev.occupied
+
+# Cycle focus to next/previous desktop (.local) 
+super + {bracketleft,bracketright}
+    bspc desktop -f {prev.local,next.local}
+
+# Send focused node previous/next desktop (.local)
+super + shift + {bracketleft,bracketright}
+	bspc node -d {prev.local,next.local} '--follow'
+
+# Cycle focus to next/previous desktop  
+super + alt + {bracketleft,bracketright}
+    bspc desktop -f {prev,next}
+
+# Send focused node to desktop directionally
+super + ctrl + {bracketleft,bracketright}
+	bspc node -d {prev,next} '--follow'
+
+# Change focus of the node or Swap nodes
+super + {_,shift + }{Left,Down,Up,Right}
+	bspc node -{f,s} {west,south,north,east}
+
+# Move floating windows
+super + alt + shift + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# Expanding windows
+super + ctrl + {Left,Right,Up,Down}
+	bspc node -z {left -20 0,right 20 0,top 0 -20,bottom 0 20}
+	
+# Shrinking windows
+super + alt + {Left,Right,Up,Down}
+	bspc node -z {left 20 0,right -20 0,top 0 20,bottom 0 -20}
+
+# Split horizontal, vertical or cancel
+super + {h,v,q}
+	bspc node -p {east,south,cancel}
+
+# Preselect the direction or cancel
+super + ctrl + {h,j,k,l,semicolon}
+    bspc node -p {west,south,north,east,cancel}        
+
+# Preselect the ratio
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+# Cancel the preselection for the focused desktop
+super + ctrl + shift + space
+    bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+# Toggle Layout (Tiled/Monocle)
+super + l
+	bspc desktop -l next
+
+# Toggle Fullscreen
+super + f
+    bspc node -t "~"fullscreen
+
+# Toggle beetwen floating & tiled
+super + space
+    bspc node -t "~"{floating,tiled}
+
+# Pseudo Tiled & tiled mode
+super + shift + space
+    bspc node -t "~"{pseudo_tiled,tiled}
+
+# Set the node flags
+super + ctrl + {m,x,y,z}
+	bspc node -g {marked,locked,sticky,private}
+
+# Change focus to next window, including floating window
+alt + {_,shift + }Tab
+	bspc node -f {next,prev}
+
+# Switch to last opened workspace
+super + {Tab,grave}
+	bspc {node,desktop} -f last
+	
+##---------- EOF ----------##
