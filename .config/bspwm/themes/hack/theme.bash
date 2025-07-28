@@ -40,12 +40,12 @@ wallpaper="$wdir/wallpaper"
 polybar_font='IosevkaTerm:size=11;3'
 
 # Rofi
-rofi_font='Iosevka 10'
+rofi_font='IosevkaTerm 11'
 rofi_icon='Hack'
 
 # Terminal
 terminal_font_name='JetBrainsMono Nerd Font'
-terminal_font_size='10'
+terminal_font_size='12'
 
 # Geany
 geany_colors='hack.conf'

@@ -61,9 +61,6 @@ apply_polybar() {
 		ALTCYAN = ${color14}
 		ALTWHITE = ${color15}
 
-		COLOR_R = ${color_red}
-		COLOR_G = ${color_green}
-		COLOR_Y = ${color_yellow}
 	EOF
 }
 

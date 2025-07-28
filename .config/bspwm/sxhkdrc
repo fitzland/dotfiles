@@ -203,12 +203,16 @@ super + BackSpace
 		bspc monitor -f next
 
 # Move focused node (window) to other monitor
-alt + ctrl + i
+super + shift + BackSpace
 	bspc node -m prev --follow
 
 # Move focused node (window) to other monitor
 alt + ctrl + o
 	bspc node -m next --follow
+
+# Navigate between nodes in monocle mode
+super + {comma,period}
+    bspc node -f {prev,next}.local    
 
 # Cycle to next/previous OCCUPIED desktop 
 super + period
@@ -231,10 +235,6 @@ super + alt + {bracketleft,bracketright}
 # Send focused node to desktop directionally
 super + ctrl + {bracketleft,bracketright}
 	bspc node -d {prev,next} '--follow'
-
-# Change focus of the node or Swap nodes
-super + {_,shift + }{Left,Down,Up,Right}
-	bspc node -{f,s} {west,south,north,east}
 
 # Move floating windows
 super + alt + shift + {Left,Down,Up,Right}
@@ -284,9 +284,13 @@ super + shift + space
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
 
-# Change focus to next window, including floating window
+# Change focus to next window, CYCLE_DIR
 alt + {_,shift + }Tab
 	bspc node -f {next,prev}
+
+# Change focus of the node or Swap nodes
+super + {_,shift + }{Left,Down,Up,Right}
+	bspc node -{f,s} {west,south,north,east}
 
 # Switch to last opened workspace
 super + {Tab,grave}
