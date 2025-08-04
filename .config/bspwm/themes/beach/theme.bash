@@ -33,32 +33,32 @@ wdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 wallpaper="$wdir/wallpaper"
 
 # Polybar
-polybar_font='Iosevka:size=10;3'
+polybar_font='IosevkaTerm Nerd Font Mono:size=10;3'
 
 # Rofi
-rofi_font='Iosevka 10'
+rofi_font='IosevkaTerm Nerd Font 11'
 rofi_icon='Arc-Circle'
 
 # Terminal
 terminal_font_name='JetBrainsMono Nerd Font'
-terminal_font_size='10'
+terminal_font_size='11'
 
 # Geany
 geany_colors='beach.conf'
-geany_font='JetBrainsMono Nerd Font 10'
+geany_font='JetBrainsMono Nerd Font 11'
 
 # Appearance
-gtk_font='Noto Sans 9'
-gtk_theme='Arc'
-icon_theme='Arc-Circle'
-cursor_theme='Future'
+gtk_font='Noto Sans 11'
+gtk_theme='Arc-Dawn-Dark'
+icon_theme='Nordic-bluish'
+cursor_theme='elementary'
 
 # Dunst
 dunst_width='300'
 dunst_height='80'
-dunst_offset='20x58'
-dunst_origin='bottom-right'
-dunst_font='Iosevka Custom 9'
+dunst_offset='10x48'
+dunst_origin='top-right'
+dunst_font='JetBrains Mono 10'
 dunst_border='2'
 dunst_separator='2'
 
@@ -74,9 +74,9 @@ picom_blur_strength='0'
 
 # Bspwm
 bspwm_fbc="$accent"
-bspwm_nbc="$background"
+bspwm_nbc="$color8"
 bspwm_abc="$color5"
-bspwm_pfc="$color2"
-bspwm_border='2'
-bspwm_gap='20'
+bspwm_pfc="$color4"
+bspwm_border='1'
+bspwm_gap='8'
 bspwm_sratio='0.50'

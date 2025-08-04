@@ -65,14 +65,6 @@ window {
     cursor:                      "default";
     /* Backgroud Colors */
     background-color:            @background-colour;
-    /* Backgroud Image */
-    //background-image:          url("/path/to/image.png", none);
-    /* Simple Linear Gradient */
-    //background-image:          linear-gradient(red, orange, pink, purple);
-    /* Directional Linear Gradient */
-    //background-image:          linear-gradient(to bottom, pink, yellow, magenta);
-    /* Angle Linear Gradient */
-    //background-image:          linear-gradient(45, cyan, purple, indigo);
 }
 
 /*****----- Main Box -----*****/
@@ -104,6 +96,10 @@ inputbar {
 
 prompt {
     enabled:                     true;
+    padding:                     15px;
+    border:                      0px 1px 0px 0px;
+    border-radius:               0px;
+    border-color:                @alternate-background;
     background-color:            inherit;
     text-color:                  inherit;
 }
@@ -281,7 +277,9 @@ message {
     text-color:                  @foreground-colour;
 }
 textbox {
+    padding:                     10px;
     border:                      0px solid;
+    border-radius:               0px;
     border-color:                @border-colour;
     background-color:            transparent;
     text-color:                  @foreground-colour;

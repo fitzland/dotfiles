@@ -152,7 +152,7 @@ case-indicator {
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
-    columns:                     1;
+    columns:                     2;
     lines:                       6;
     cycle:                       true;
     dynamic:                     true;
@@ -281,7 +281,9 @@ message {
     text-color:                  @foreground-colour;
 }
 textbox {
+    padding:                     10px;
     border:                      0px solid;
+    border-radius:               0px;
     border-color:                @border-colour;
     background-color:            transparent;
     text-color:                  @foreground-colour;

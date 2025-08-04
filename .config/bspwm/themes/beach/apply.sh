@@ -23,7 +23,7 @@ PATH_ROFI="$PATH_BSPWM/themes/$THEME/rofi"
 
 ## Wallpaper ---------------------------------
 apply_wallpaper() {
-	feh --bg-fill "$wallpaper"
+	feh --no-xinerama --bg-scale "$wallpaper"
 }
 
 ## Polybar -----------------------------------
@@ -200,6 +200,7 @@ apply_appearance() {
 	XFILE="$PATH_BSPWM/xsettingsd"
 	GTK2FILE="$HOME/.gtkrc-2.0"
 	GTK3FILE="$PATH_CONF/gtk-3.0/settings.ini"
+	GTK4FILE="$PATH_CONF/gtk-4.0/settings.ini"
 
 	# apply gtk theme, icons, cursor & fonts
 	if [[ `pidof xsettingsd` ]]; then
@@ -216,6 +217,11 @@ apply_appearance() {
 		sed -i -e "s/gtk-theme-name=.*/gtk-theme-name=$gtk_theme/g" ${GTK3FILE}
 		sed -i -e "s/gtk-icon-theme-name=.*/gtk-icon-theme-name=$icon_theme/g" ${GTK3FILE}
 		sed -i -e "s/gtk-cursor-theme-name=.*/gtk-cursor-theme-name=$cursor_theme/g" ${GTK3FILE}
+
+		sed -i -e "s/gtk-font-name=.*/gtk-font-name=$gtk_font/g" ${GTK4FILE}
+		sed -i -e "s/gtk-theme-name=.*/gtk-theme-name=$gtk_theme/g" ${GTK4FILE}
+		sed -i -e "s/gtk-icon-theme-name=.*/gtk-icon-theme-name=$icon_theme/g" ${GTK4FILE}
+		sed -i -e "s/gtk-cursor-theme-name=.*/gtk-cursor-theme-name=$cursor_theme/g" ${GTK4FILE}
 	fi
 	
 	# inherit cursor theme

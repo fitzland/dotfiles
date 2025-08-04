@@ -293,7 +293,7 @@ apply_bspwm() {
 		-e "s/BSPWM_BORDER=.*/BSPWM_BORDER='$bspwm_border'/g" \
 		-e "s/BSPWM_GAP=.*/BSPWM_GAP='$bspwm_gap'/g" \
 		-e "s/BSPWM_SRATIO=.*/BSPWM_SRATIO='$bspwm_sratio'/g"
-	
+
 	# reload bspwm
 	bspc wm -r
 }

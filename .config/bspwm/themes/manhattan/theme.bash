@@ -39,19 +39,19 @@ wallpaper="$wdir/wallpaper"
 polybar_font='IosevkaTerm Nerd Font Mono:size=10;3'
 
 # Rofi
-rofi_font='IosevkaTerm Nerd Font 10'
-rofi_icon='Luv-Folders-Dark'
+rofi_font='IosevkaTerm Nerd Font 11'
+rofi_icon='Qogir-ubuntu-dark'
 
 # Terminal
 terminal_font_name='JetBrainsMono Nerd Font'
-terminal_font_size='10'
+terminal_font_size='11'
 
 # Geany
 geany_colors='manhattan.conf'
-geany_font='JetBrainsMono Nerd Font 10'
+geany_font='JetBrainsMono Nerd Font 11'
 
 # Appearance
-gtk_font='Noto Sans 9'
+gtk_font='Noto Sans 11'
 gtk_theme='Andromeda'
 icon_theme='Paper'
 cursor_theme='Qogir-dark'
@@ -61,7 +61,7 @@ dunst_width='300'
 dunst_height='80'
 dunst_offset='20x20'
 dunst_origin='top-right'
-dunst_font='Iosevka Custom 9'
+dunst_font='JetBrains Mono 10'
 dunst_border='2'
 dunst_separator='2'
 
@@ -76,10 +76,10 @@ picom_blur_method='none'
 picom_blur_strength='0'
 
 # Bspwm
-bspwm_fbc="$element_hl"
-bspwm_nbc="$background"
+bspwm_fbc="$accent"
+bspwm_nbc="$color8"
 bspwm_abc="$color5"
-bspwm_pfc="$color2"
-bspwm_border='2'
-bspwm_gap='10'
+bspwm_pfc="$color4"
+bspwm_border='1'
+bspwm_gap='8'
 bspwm_sratio='0.50'
