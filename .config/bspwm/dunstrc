@@ -67,5 +67,5 @@ frame_color = "#007B82"
 [urgency_critical]
 timeout = 0
 background = "#282A36"
-foreground = "#ff0000"
-frame_color = "#ff0000"
+foreground = "#FF5555"
+frame_color = "#FF5555"

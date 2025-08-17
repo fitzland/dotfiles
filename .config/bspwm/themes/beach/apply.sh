@@ -12,6 +12,7 @@ THEME="${TDIR##*/}"
 source "$BDIR"/themes/"$THEME"/theme.bash
 altbackground="`pastel color $background | pastel lighten $light_value | pastel format hex`"
 altforeground="`pastel color $foreground | pastel darken $dark_value | pastel format hex`"
+modbackground=(`pastel gradient -n 7 $background $altbackground | pastel format hex`)
 
 ## Directories ------------------------------
 PATH_CONF="$HOME/.config"
@@ -92,7 +93,7 @@ apply_rofi() {
 	cat > ${PATH_ROFI}/shared/colors.rasi <<- EOF
 		* {
 		    background:     ${background};
-		    background-alt: ${altbackground};
+		    background-alt: ${color0};
 		    foreground:     ${foreground};
 		    selected:       ${accent};
 		    active:         ${color2};
@@ -250,13 +251,13 @@ apply_dunst() {
 		timeout = 2
 		background = "${background}"
 		foreground = "${foreground}"
-		frame_color = "${altbackground}"
+		frame_color = "${accent}"
 
 		[urgency_normal]
 		timeout = 5
 		background = "${background}"
 		foreground = "${foreground}"
-		frame_color = "${altbackground}"
+		frame_color = "${accent}"
 
 		[urgency_critical]
 		timeout = 0

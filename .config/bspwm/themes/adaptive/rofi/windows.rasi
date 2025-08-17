@@ -51,7 +51,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       550px;
+    width:                       600px;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -85,7 +85,7 @@ mainbox {
     border-radius:               0px 0px 0px 0px;
     border-color:                @border-colour;
     background-color:            transparent;
-    children:                    [ "inputbar", "listview" ];
+    children:                    [ "inputbar", "message", "listview" ];
 }
 
 /*****----- Inputbar -----*****/
@@ -113,7 +113,7 @@ textbox-prompt-colon {
     expand:                      false;
     str:                         "";
     background-color:            inherit;
-    text-color:                  @urgent;
+    text-color:                  inherit;
 }
 entry {
     enabled:                     true;
@@ -184,7 +184,7 @@ element {
     enabled:                     true;
     spacing:                     10px;
     margin:                      0px;
-    padding:                     8px;
+    padding:                     6px;
     border:                      0px solid;
     border-radius:               0px;
     border-color:                @border-colour;

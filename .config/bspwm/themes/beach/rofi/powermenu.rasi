@@ -19,7 +19,7 @@ configuration {
 @import                          "shared/fonts.rasi"
 
 /*
-USE_ICON=NO
+USE_ICON=YES
 */
 
 * {
@@ -55,17 +55,14 @@ window {
     location:                    southeast;
     anchor:                      southeast;
     fullscreen:                  false;
-    width:                       350px;
-    x-offset:                    -20px;
-    y-offset:                    -58px;
-
-    /* properties for all widgets */
-    enabled:                     true;
+    width:                       600px;
+    x-offset:                    -50px;
+    y-offset:                    -50px;
     margin:                      0px;
     padding:                     0px;
-    border:                      0px solid;
+    border:                      1px solid;
     border-radius:               0px;
-    border-color:                @border-colour;
+    border-color:                @selected;
     cursor:                      "default";
     /* Backgroud Colors */
     background-color:            @background-colour;
@@ -84,10 +81,7 @@ mainbox {
     enabled:                     true;
     spacing:                     10px;
     margin:                      0px;
-    padding:                     30px;
-    border:                      0px solid;
-    border-radius:               0px 0px 0px 0px;
-    border-color:                @border-colour;
+    padding:                     10px;
     background-color:            transparent;
     children:                    [ "inputbar", "message", "listview" ];
 }
@@ -96,14 +90,13 @@ mainbox {
 inputbar {
     enabled:                     true;
     spacing:                     10px;
-    margin:                      0px;
     padding:                     0px;
     border:                      0px solid;
     border-radius:               0px;
-    border-color:                @border-colour;
+    border-color:                @selected;
     background-color:            transparent;
-    text-color:                  @foreground-colour;
-    children:                    [ "textbox-prompt-colon", "prompt" ];
+    text-color:                  @foreground;
+    children:                    [ "textbox-prompt-colon", "prompt"];
 }
 
 prompt {
@@ -115,8 +108,10 @@ textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
     str:                         "";
-    background-color:            inherit;
-    text-color:                  inherit;
+    padding:                     10px 12px;
+    border-radius:               0px;
+    background-color:            @background-alt;
+    text-color:                  @selected;
 }
 entry {
     enabled:                     true;
@@ -154,8 +149,8 @@ case-indicator {
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
-    columns:                     1;
-    lines:                       6;
+    columns:                     6;
+    lines:                       1;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;

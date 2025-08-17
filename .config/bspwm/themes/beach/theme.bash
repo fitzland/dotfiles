@@ -49,7 +49,7 @@ geany_font='JetBrainsMono Nerd Font 11'
 
 # Appearance
 gtk_font='Noto Sans 11'
-gtk_theme='Arc-Dawn-Dark'
+gtk_theme='Squared-Nord'
 icon_theme='Nordic-bluish'
 cursor_theme='elementary'
 

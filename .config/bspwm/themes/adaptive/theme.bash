@@ -48,7 +48,7 @@ geany_colors='adapta.conf'
 geany_font='JetBrainsMono Nerd Font 10'
 
 # Appearance
-gtk_font='Noto Sans 9'
+gtk_font='Noto Sans 10'
 gtk_theme='Matcha-dark-sea'
 icon_theme='Paper'
 cursor_theme='Qogir-manjaro-dark'
@@ -58,7 +58,7 @@ dunst_width='300'
 dunst_height='80'
 dunst_offset='10x44'
 dunst_origin='top-right'
-dunst_font='Iosevka Custom 9'
+dunst_font='IosevkaTerm Nerd Font 10'
 dunst_border='1'
 dunst_separator='1'
 

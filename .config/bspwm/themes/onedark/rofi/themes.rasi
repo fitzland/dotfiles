@@ -44,7 +44,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       500px;
+    width:                       400px;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -115,6 +115,7 @@ entry {
     enabled:                     true;
     padding:                     8px 12px;
     border-radius:               0px;
+    border-color:                @selected;
     background-color:            @background-alt;
     text-color:                  inherit;
     cursor:                      text;

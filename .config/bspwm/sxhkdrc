@@ -45,7 +45,7 @@ super + {_,shift} + F9
 
 # Firefox
 super + {_,shift} + F10
-    {firefox-developer-edition,firefox-developer-edition --private-window}
+    {firefox-devedition,firefox-devedition --private-window}
 
 # Microsoft Edge
 super + {_,shift} + F11
@@ -59,15 +59,15 @@ super + {_,shift} + F12
 
 # Terminal (alacritty)
 super + Return
-    bspterm
+    bspkitty
 
 # Terminal (floating / fullscreen)
 super + shift + Return
-    bspterm --float
+    thunar
 
 # Terminal (kitty)
 super + ctrl + Return
-    bspkitty
+    bspterm
 
 # Terminal Tools
 ctrl + alt + {v,r,h}

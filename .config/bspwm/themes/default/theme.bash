@@ -37,7 +37,7 @@ polybar_font='IosevkaTerm Nerd Font:size=11;3'
 
 # Rofi
 rofi_font='IosevkaTerm Nerd Font 11'
-rofi_icon='neo-candy-icons'
+rofi_icon='candy-icons'
 
 # Terminal
 terminal_font_name='JetBrainsMono Nerd Font'

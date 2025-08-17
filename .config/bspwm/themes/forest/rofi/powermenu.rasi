@@ -38,7 +38,7 @@ mainbox {
     enabled:                     true;
     spacing:                     10px;
     margin:                      0px;
-    padding:                     20px;
+    padding:                     10px;
     background-color:            transparent;
     children:                    [ "inputbar", "message", "listview" ];
 }
@@ -48,12 +48,12 @@ inputbar {
     enabled:                     true;
     spacing:                     0px;
     padding:                     0px;
-    border:                      0px;
+    border:                      1px;
     border-radius:               0px;
     border-color:                @selected;
     background-color:            transparent;
     text-color:                  @foreground;
-    children:                    [ "textbox-prompt-colon", "prompt" ];
+    children:                    [ "textbox-prompt-colon", "prompt"];
 }
 
 textbox-prompt-colon {
@@ -62,7 +62,7 @@ textbox-prompt-colon {
     str:                         "";
     padding:                     10px 12px;
     border-radius:               0px;
-    background-color:            @urgent;
+    background-color:            @selected;
     text-color:                  @background;
 }
 prompt {
@@ -88,7 +88,7 @@ textbox {
     background-color:            inherit;
     text-color:                  inherit;
     vertical-align:              0.5;
-    horizontal-align:            0.5;
+    horizontal-align:            0.0;
 }
 
 /*****----- Listview -----*****/

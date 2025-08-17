@@ -61,7 +61,7 @@ three_monitors_workspaces() {
 	# again, change these values accordingly
 	MONITOR_1="DP-2"
 	MONITOR_2="DP-4"
-	MONITOR_3="HDMI-A-1"
+	MONITOR_3="DP-3"
 	bspc monitor "$MONITOR_1" -d '' '' 
 	bspc monitor "$MONITOR_2" -d '' '' '' 
 	bspc monitor "$MONITOR_3" -d '' '' '' '' ''
@@ -143,6 +143,7 @@ bspc rule -a Thunar desktop=^8 follow=on focus=on
 declare -a media=(Audacity Music MPlayer Lxmusic Spotify)
 for i in ${media[@]}; do
    bspc rule -a $i desktop='^9' follow=on focus=on; done
+bspc rule -a "Google-chrome:music.youtube.com" desktop='^9'
 
 ## 10 > system (always open system apps on workspace-10)
 bspc rule -a 'VirtualBox Manager' desktop='^10' follow=on focus=on
@@ -174,7 +175,7 @@ xsettingsd --config="$BSPDIR"/xsettingsd &
 
 # polkit agent
 if [[ ! `pidof xfce-polkit` ]]; then
-	/usr/lib/xfce-polkit/xfce-polkit &
+	/usr/bin/lxpolkit &
 fi
 
 # Lauch keybindings daemon
