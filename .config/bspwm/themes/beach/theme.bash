@@ -5,9 +5,9 @@
 # ------------------------------------------------------------------------------
 
 # Colors
-background='#141c21'
+background='#2b313c'
 foreground='#93a1a1'
-color0='#263640'
+color0='#323946'
 color1='#d12f2c'
 color2='#819400'
 color3='#b08500'
@@ -24,7 +24,7 @@ color13='#8086e8'
 color14='#33c5ba'
 color15='#fdf6e3'
 
-accent='#5294E2'
+accent='#289c93'
 light_value='0.03'
 dark_value='0.30'
 
@@ -33,7 +33,7 @@ wdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 wallpaper="$wdir/wallpaper"
 
 # Polybar
-polybar_font='IosevkaTerm Nerd Font Mono:size=10;3'
+polybar_font='IosevkaTerm Nerd Font:size=11;3'
 
 # Rofi
 rofi_font='IosevkaTerm Nerd Font 11'
@@ -56,11 +56,11 @@ cursor_theme='elementary'
 # Dunst
 dunst_width='300'
 dunst_height='80'
-dunst_offset='10x48'
+dunst_offset='10x44'
 dunst_origin='top-right'
-dunst_font='JetBrains Mono 10'
-dunst_border='2'
-dunst_separator='2'
+dunst_font='IosevkaTerm Nerd Font 10'
+dunst_border='1'
+dunst_separator='1'
 
 # Picom
 picom_backend='glx'
@@ -74,9 +74,9 @@ picom_blur_strength='0'
 
 # Bspwm
 bspwm_fbc="$accent"
-bspwm_nbc="$color8"
-bspwm_abc="$color5"
-bspwm_pfc="$color4"
+bspwm_nbc="$background"
+bspwm_abc="$color4"
+bspwm_pfc="$color2"
 bspwm_border='1'
-bspwm_gap='8'
+bspwm_gap='10'
 bspwm_sratio='0.50'

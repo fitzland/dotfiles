@@ -4,7 +4,7 @@
 
 # Import Current Theme
 DIR="$HOME/.config/bspwm"
-STYLE="hack"
+STYLE="adaptive"
 RASI="$DIR/themes/$STYLE/rofi/themes.rasi"
 
 # List Available Themes
@@ -26,7 +26,8 @@ rofi_cmd() {
 
 # Pass variables to rofi dmenu
 run_rofi() {
-	echo ${THEMES[@]} | sed 's/ /|/g' | sed 's/$/|/' | rofi_cmd
+#	echo ${THEMES[@]} | sed 's/ /|/g' | sed 's/$/|/' | rofi_cmd
+    echo ${THEMES[@]} | sed 's/ /|/g' | rofi_cmd
 }
 
 # Apply Theme

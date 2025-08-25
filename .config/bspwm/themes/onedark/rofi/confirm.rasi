@@ -12,7 +12,7 @@ configuration {
 @import                          "shared/fonts.rasi"
 
 /*
-USE_ICON=YES
+USE_ICON=NO
 */
 
 /*****----- Main Window -----*****/
@@ -21,7 +21,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       300px;
+    width:                       250px;
     x-offset:                    0px;
     y-offset:                    0px;
     margin:                      0px;
@@ -38,7 +38,7 @@ mainbox {
     enabled:                     true;
     spacing:                     10px;
     margin:                      0px;
-    padding:                     20px;
+    padding:                     10px;
     background-color:            transparent;
     children:                    [ "message", "listview" ];
 }
@@ -62,14 +62,14 @@ textbox-prompt-colon {
     str:                         "";
     padding:                     10px 12px;
     border-radius:               0px;
-    background-color:            @active;
+    background-color:            @urgent;
     text-color:                  @background;
 }
 prompt {
     enabled:                     true;
     padding:                     10px;
     border-radius:               0px;
-    background-color:            @selected;
+    background-color:            @active;
     text-color:                  @background;
 }
 
@@ -81,8 +81,8 @@ message {
     border:                      0px solid;
     border-radius:               0px;
     border-color:                @selected;
-    background-color:            @background-alt;
-    text-color:                  @foreground;
+    background-color:            @urgent;
+    text-color:                  @background;
 }
 textbox {
     background-color:            inherit;
@@ -108,7 +108,7 @@ listview {
 /*****----- Elements -----*****/
 element {
     enabled:                     true;
-    padding:                     8px 10px;
+    padding:                     10px 10px;
     border:                      0px solid;
     border-radius:               0px;
     border-color:                @selected;
@@ -117,32 +117,31 @@ element {
     cursor:                      pointer;
 }
 element-text {
-    font:                        "feather 20";
     background-color:            transparent;
     text-color:                  inherit;
     cursor:                      inherit;
-    vertical-align:              0;
+    vertical-align:              0.5;
     horizontal-align:            0.5;
 }
 
 element normal.normal,
 element alternate.normal {
-    background-color:            var(background-alt);
-    text-color:                  var(foreground);
+    background-color:            @background-alt;
+    text-color:                  @foreground;
 }
 element normal.urgent,
 element alternate.urgent,
 element selected.active {
-    background-color:            var(urgent);
-    text-color:                  var(background);
+    background-color:            @urgent;
+    text-color:                  @background;
 }
 element normal.active,
 element alternate.active,
 element selected.urgent {
-    background-color:            var(active);
-    text-color:                  var(background);
+    background-color:            @active;
+    text-color:                  @background;
 }
 element selected.normal {
-    background-color:            var(selected);
-    text-color:                  var(background);
+    background-color:            @selected;
+    text-color:                  @background;
 }

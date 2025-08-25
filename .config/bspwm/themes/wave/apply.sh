@@ -10,9 +10,9 @@ TDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 THEME="${TDIR##*/}"
 
 source "$BDIR"/themes/"$THEME"/theme.bash
-altbackground="`pastel color $element_bg | pastel lighten $light_value | pastel format hex`"
-altforeground="`pastel color $element_fg | pastel darken $dark_value | pastel format hex`"
-modbackground=(`pastel gradient -n 7 $element_bg $altbackground | pastel format hex`)
+altbackground="`pastel color $background | pastel lighten $light_value | pastel format hex`"
+altforeground="`pastel color $foreground | pastel darken $dark_value | pastel format hex`"
+modbackground=(`pastel gradient -n 7 $background $altbackground | pastel format hex`)
 
 ## Directories ------------------------------
 PATH_CONF="$HOME/.config"
@@ -24,7 +24,7 @@ PATH_ROFI="$PATH_BSPWM/themes/$THEME/rofi"
 
 ## Wallpaper ---------------------------------
 apply_wallpaper() {
-	feh --bg-fill "$wallpaper"
+	feh --no-xinerama --bg-scale "$wallpaper"
 }
 
 ## Polybar -----------------------------------
@@ -39,8 +39,8 @@ apply_polybar() {
 	cat > ${PATH_PBAR}/colors.ini <<- EOF
 		[color]
 		
-		BACKGROUND = ${element_bg}
-		FOREGROUND = ${element_fg}
+		BACKGROUND = ${background}
+		FOREGROUND = ${foreground}
 		ALTBACKGROUND = ${altbackground}
 		ALTFOREGROUND = ${altforeground}
 		ACCENT = ${accent}
@@ -61,13 +61,6 @@ apply_polybar() {
 		ALTMAGENTA = ${color13}
 		ALTCYAN = ${color14}
 		ALTWHITE = ${color15}
-
-		BACKGROUND1 = ${modbackground[1]}
-		BACKGROUND2 = ${modbackground[2]}
-		BACKGROUND3 = ${modbackground[3]}
-		BACKGROUND4 = ${modbackground[4]}
-		BACKGROUND5 = ${modbackground[5]}
-		BACKGROUND6 = ${modbackground[6]}
 	EOF
 }
 
@@ -99,9 +92,9 @@ apply_rofi() {
 	# rewrite colors file
 	cat > ${PATH_ROFI}/shared/colors.rasi <<- EOF
 		* {
-		    background:     ${element_bg};
-		    background-alt: ${modbackground[2]};
-		    foreground:     ${element_fg};
+		    background:     ${background};
+		    background-alt: ${color0};
+		    foreground:     ${foreground};
 		    selected:       ${accent};
 		    active:         ${color2};
 		    urgent:         ${color1};
@@ -208,6 +201,7 @@ apply_appearance() {
 	XFILE="$PATH_BSPWM/xsettingsd"
 	GTK2FILE="$HOME/.gtkrc-2.0"
 	GTK3FILE="$PATH_CONF/gtk-3.0/settings.ini"
+	GTK4FILE="$PATH_CONF/gtk-4.0/settings.ini"
 
 	# apply gtk theme, icons, cursor & fonts
 	if [[ `pidof xsettingsd` ]]; then
@@ -224,6 +218,11 @@ apply_appearance() {
 		sed -i -e "s/gtk-theme-name=.*/gtk-theme-name=$gtk_theme/g" ${GTK3FILE}
 		sed -i -e "s/gtk-icon-theme-name=.*/gtk-icon-theme-name=$icon_theme/g" ${GTK3FILE}
 		sed -i -e "s/gtk-cursor-theme-name=.*/gtk-cursor-theme-name=$cursor_theme/g" ${GTK3FILE}
+
+		sed -i -e "s/gtk-font-name=.*/gtk-font-name=$gtk_font/g" ${GTK4FILE}
+		sed -i -e "s/gtk-theme-name=.*/gtk-theme-name=$gtk_theme/g" ${GTK4FILE}
+		sed -i -e "s/gtk-icon-theme-name=.*/gtk-icon-theme-name=$icon_theme/g" ${GTK4FILE}
+		sed -i -e "s/gtk-cursor-theme-name=.*/gtk-cursor-theme-name=$cursor_theme/g" ${GTK4FILE}
 	fi
 	
 	# inherit cursor theme
@@ -250,19 +249,19 @@ apply_dunst() {
 	cat >> ${PATH_BSPWM}/dunstrc <<- _EOF_
 		[urgency_low]
 		timeout = 2
-		background = "${element_bg}"
-		foreground = "${element_fg}"
-		frame_color = "${altbackground}"
+		background = "${background}"
+		foreground = "${foreground}"
+		frame_color = "${accent}"
 
 		[urgency_normal]
 		timeout = 5
-		background = "${element_bg}"
-		foreground = "${element_fg}"
-		frame_color = "${altbackground}"
+		background = "${background}"
+		foreground = "${foreground}"
+		frame_color = "${accent}"
 
 		[urgency_critical]
 		timeout = 0
-		background = "${element_bg}"
+		background = "${background}"
 		foreground = "${color1}"
 		frame_color = "${color1}"
 	_EOF_
@@ -295,7 +294,7 @@ apply_bspwm() {
 		-e "s/BSPWM_BORDER=.*/BSPWM_BORDER='$bspwm_border'/g" \
 		-e "s/BSPWM_GAP=.*/BSPWM_GAP='$bspwm_gap'/g" \
 		-e "s/BSPWM_SRATIO=.*/BSPWM_SRATIO='$bspwm_sratio'/g"
-	
+
 	# reload bspwm
 	bspc wm -r
 }

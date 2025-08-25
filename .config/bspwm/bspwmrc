@@ -20,10 +20,10 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 ## Current theme ---------------------------------------------#
 
 ## Bspwm colors
-BSPWM_FBC='#007B82'
-BSPWM_NBC='#282A36'
-BSPWM_ABC='#FF79C6'
-BSPWM_PFC='#50FA7B'
+BSPWM_FBC='#4dd0e1'
+BSPWM_NBC='#1b2224'
+BSPWM_ABC='#42a5f5'
+BSPWM_PFC='#61c766'
 
 ## Bspwm appearance
 BSPWM_BORDER='1'
@@ -174,7 +174,7 @@ sh ~/.screenlayout/monitor.sh &
 xsettingsd --config="$BSPDIR"/xsettingsd &
 
 # polkit agent
-if [[ ! `pidof xfce-polkit` ]]; then
+if [[ ! `pidof lxpolkit` ]]; then
 	/usr/bin/lxpolkit &
 fi
 
@@ -187,6 +187,9 @@ ksuperkey -e 'Super_R=Alt_L|F1' &
 
 # Enable power management
 #xfce4-power-manager &
+
+# Compose key
+setxkbmap -option compose:rctrl
 
 # Fix cursor
 xsetroot -cursor_name left_ptr

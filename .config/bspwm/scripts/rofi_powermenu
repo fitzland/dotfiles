@@ -4,7 +4,7 @@
 
 # Import Current Theme
 DIR="$HOME/.config/bspwm"
-STYLE="hack"
+STYLE="adaptive"
 RASI="$DIR/themes/$STYLE/rofi/powermenu.rasi"
 CNFR="$DIR/themes/$STYLE/rofi/confirm.rasi"
 
@@ -15,16 +15,16 @@ mesg="Uptime : `uptime -p | sed -e 's/up //g'`"
 # Options
 layout=`cat ${RASI} | grep 'USE_ICON' | cut -d'=' -f2`
 if [[ "$layout" == 'NO' ]]; then
-	option_1=" Lock"
-	option_2=" Logout"
-	option_3=" Suspend"
-	option_4=" Hibernate"
-	option_5=" Reboot"
-	option_6=" Shutdown"
+	option_1=" Lock"
+	option_2=" Logout"
+	option_3=" Suspend"
+	option_4=" Hibernate"
+	option_5=" Reboot"
+	option_6=" Shutdown"
 else
 	option_1=""
 	option_2=""
-	option_3=""
+	option_3=""
 	option_4=""
 	option_5=""
 	option_6=""
@@ -32,10 +32,10 @@ fi
 cnflayout=`cat ${CNFR} | grep 'USE_ICON' | cut -d'=' -f2`
 if [[ "$cnflayout" == 'NO' ]]; then
 	yes=' Yes'
-	no=' No'
+	no=' No'
 else
 	yes=''
-	no=''
+	no=''
 fi
 
 # Rofi CMD

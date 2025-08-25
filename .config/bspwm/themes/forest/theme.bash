@@ -11,20 +11,20 @@ color0='#263640'
 color1='#ec7875'
 color2='#61c766'
 color3='#fdd835'
-color4='#42a5f5'
-color5='#ba68c8'
-color6='#4dd0e1'
-color7='#bfbaac'
+color4='#51b4ff'
+color5='#c979d7'
+color6='#5cdff0'
+color7='#fdf6e3'
 color8='#4a697d'
 color9='#fb8784'
 color10='#70d675'
 color11='#ffe744'
-color12='#51b4ff'
-color13='#c979d7'
-color14='#5cdff0'
-color15='#fdf6e3'
+color12='#42a5f5'
+color13='#ba68c8'
+color14='#4dd0e1'
+color15='#bfbaac'
 
-accent='#00BCD4'
+accent='#42a5f5'
 light_value='0.05'
 dark_value='0.30'
 
@@ -36,7 +36,7 @@ wallpaper="$wdir/wallpaper"
 polybar_font='IosevkaTerm Nerd Font:size=11;3'
 
 # Rofi
-rofi_font='IosevkaTerm Nerd Font 10'
+rofi_font='IosevkaTerm Nerd Font 11'
 rofi_icon='Paper'
 
 # Terminal
@@ -50,17 +50,17 @@ geany_font='JetBrainsMono Nerd Font 10'
 # Appearance
 gtk_font='Noto Sans 9'
 gtk_theme='Juno'
-icon_theme='Qogir-manjaro-dark'
+icon_theme='Qogir-ubuntu-dark'
 cursor_theme='Qogir-manjaro-dark'
 
 # Dunst
 dunst_width='300'
 dunst_height='80'
-dunst_offset='10x40'
+dunst_offset='10x44'
 dunst_origin='top-right'
-dunst_font='Iosevka Custom 9'
-dunst_border='2'
-dunst_separator='2'
+dunst_font='IosevkaTerm Nerd Font 10'
+dunst_border='1'
+dunst_separator='1'
 
 # Picom
 picom_backend='glx'
@@ -75,7 +75,7 @@ picom_blur_strength='0'
 # Bspwm
 bspwm_fbc="$accent"
 bspwm_nbc="$background"
-bspwm_abc="$color5"
+bspwm_abc="$color4"
 bspwm_pfc="$color2"
 bspwm_border='1'
 bspwm_gap='10'

@@ -24,9 +24,7 @@ color13='#985eff'
 color14='#24d1e7'
 color15='#e5e5e5'
 
-accent='#BD99FF'
-element_bg='#3D4C5F'
-element_fg='#F8F8F8'
+accent='#24d1e7'
 
 light_value='0.12'
 dark_value='0.30'

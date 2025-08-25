@@ -5,26 +5,26 @@
 # ------------------------------------------------------------------------------
 
 # Colors
-background='#2E3440'
+background='#16181d'
 foreground='#D8DEE9'
-color0='#3B4252'
-color1='#BF616A'
-color2='#A3BE8C'
+color0='#23262e'
+color1='#da4453'
+color2='#62d88b'
 color3='#EBCB8B'
 color4='#81A1C1'
-color5='#B48EAD'
-color6='#88C0D0'
+color5='#b59eea'
+color6='#87fbf8'
 color7='#E5E9F0'
-color8='#4C566A'
-color9='#BF616A'
-color10='#A3BE8C'
+color8='#3B4252'
+color9='#7a303b'
+color10='#308755'
 color11='#EBCB8B'
 color12='#81A1C1'
-color13='#B48EAD'
-color14='#8FBCBB'
+color13='#624d93'
+color14='#00e8c6'
 color15='#ECEFF4'
 
-accent='#81A1C1'
+accent='#00e8c6'
 light_value='0.05'
 dark_value='0.30'
 
@@ -33,10 +33,10 @@ wdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 wallpaper="$wdir/wallpaper"
 
 # Polybar
-polybar_font='IosevkaTerm Nerd Font:size=11;3'
+polybar_font='Iosevka Nerd Font:size=11;3'
 
 # Rofi
-rofi_font='IosevkaTerm Nerd Font 11'
+rofi_font='Iosevka Nerd Font 11'
 rofi_icon='candy-icons'
 
 # Terminal
@@ -56,9 +56,9 @@ cursor_theme='Qogir-ubuntu'
 # Dunst
 dunst_width='300'
 dunst_height='80'
-dunst_offset='10x42'
+dunst_offset='10x44'
 dunst_origin='top-right'
-dunst_font='IosevkaTerm Nerd Font 9'
+dunst_font='Iosevka Nerd Font 10'
 dunst_border='1'
 dunst_separator='1'
 
@@ -75,7 +75,7 @@ picom_blur_strength='0'
 # Bspwm
 bspwm_fbc="$accent"
 bspwm_nbc="$background"
-bspwm_abc="$color5"
+bspwm_abc="$color4"
 bspwm_pfc="$color2"
 bspwm_border='1'
 bspwm_gap='10'

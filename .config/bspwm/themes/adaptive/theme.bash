@@ -5,9 +5,9 @@
 # ------------------------------------------------------------------------------
 
 # Colors
-background='#222d32'
+background='#1b2224'
 foreground='#c4c7c5'
-color0='#263640'
+color0='#222b2e'
 color1='#ec7875'
 color2='#61c766'
 color3='#fdd835'
@@ -24,7 +24,7 @@ color13='#c979d7'
 color14='#5cdff0'
 color15='#fdf6e3'
 
-accent='#00BCD4'
+accent='#4dd0e1'
 light_value='0.15'
 dark_value='0.30'
 
@@ -33,15 +33,15 @@ wdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 wallpaper="$wdir/wallpaper"
 
 # Polybar
-polybar_font='IosevkaTerm Nerd Font:size=11;3'
+polybar_font='Iosevka Nerd Font:size=11;3'
 
 # Rofi
-rofi_font='IosevkaTerm Nerd Font 10'
+rofi_font='Iosevka Nerd Font 11'
 rofi_icon='Paper'
 
 # Terminal
 terminal_font_name='JetBrainsMono Nerd Font'
-terminal_font_size='10'
+terminal_font_size='11'
 
 # Geany
 geany_colors='adapta.conf'
@@ -50,15 +50,15 @@ geany_font='JetBrainsMono Nerd Font 10'
 # Appearance
 gtk_font='Noto Sans 10'
 gtk_theme='Matcha-dark-sea'
-icon_theme='Paper'
-cursor_theme='Qogir-manjaro-dark'
+icon_theme='Qogir-ubuntu-dark'
+cursor_theme='elementary'
 
 # Dunst
 dunst_width='300'
 dunst_height='80'
 dunst_offset='10x44'
 dunst_origin='top-right'
-dunst_font='IosevkaTerm Nerd Font 10'
+dunst_font='Iosevka Nerd Font 10'
 dunst_border='1'
 dunst_separator='1'
 
@@ -75,7 +75,7 @@ picom_blur_strength='0'
 # Bspwm
 bspwm_fbc="$accent"
 bspwm_nbc="$background"
-bspwm_abc="$color5"
+bspwm_abc="$color4"
 bspwm_pfc="$color2"
 bspwm_border='1'
 bspwm_gap='10'

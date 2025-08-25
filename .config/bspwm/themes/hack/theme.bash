@@ -24,11 +24,7 @@ color13='#FF92D0'
 color14='#9AEDFE'
 color15='#E6E6E6'
 
-accent='#007B82'
-color_red='#ff0000'
-color_green='#00ff00'
-color_yellow='#ffff00'
-
+accent='#8BE9FD'
 light_value='0.05'
 dark_value='0.30'
 
@@ -37,15 +33,15 @@ wdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 wallpaper="$wdir/wallpaper"
 
 # Polybar
-polybar_font='IosevkaTerm:size=11;3'
+polybar_font='Iosevka Nerd Font:size=11;3'
 
 # Rofi
-rofi_font='IosevkaTerm 11'
+rofi_font='Iosevka Nerd Font 11'
 rofi_icon='Hack'
 
 # Terminal
 terminal_font_name='JetBrainsMono Nerd Font'
-terminal_font_size='12'
+terminal_font_size='11'
 
 # Geany
 geany_colors='hack.conf'
@@ -55,14 +51,14 @@ geany_font='JetBrainsMono Nerd Font 10'
 gtk_font='Inter 10'
 gtk_theme='Dracula'
 icon_theme='Dracula'
-cursor_theme='Qogir-ubuntu-dark'
+cursor_theme='Sweet-cursors'
 
 # Dunst
 dunst_width='300'
 dunst_height='80'
-dunst_offset='10x36'
+dunst_offset='10x44'
 dunst_origin='top-right'
-dunst_font='IosevkaTerm Nerd Font 10'
+dunst_font='Iosevka Nerd Font 10'
 dunst_border='1'
 dunst_separator='1'
 
@@ -79,7 +75,7 @@ picom_blur_strength='0'
 # Bspwm
 bspwm_fbc="$accent"
 bspwm_nbc="$background"
-bspwm_abc="$color5"
+bspwm_abc="$color4"
 bspwm_pfc="$color2"
 bspwm_border='1'
 bspwm_gap='10'

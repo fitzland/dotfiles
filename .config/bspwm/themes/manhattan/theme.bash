@@ -24,7 +24,7 @@ color13='#825ece'
 color14='#62cdcd'
 color15='#e0e5e5'
 
-accent='#81A1C1'
+accent='#62cdcd'
 light_value='0.05'
 dark_value='0.30'
 
@@ -56,9 +56,9 @@ cursor_theme='Qogir-dark'
 # Dunst
 dunst_width='300'
 dunst_height='80'
-dunst_offset='20x20'
+dunst_offset='10x44'
 dunst_origin='top-right'
-dunst_font='IosevkaTerm Nerd Font 9'
+dunst_font='IosevkaTerm Nerd Font 10'
 dunst_border='1'
 dunst_separator='1'
 
@@ -75,7 +75,7 @@ picom_blur_strength='0'
 # Bspwm
 bspwm_fbc="$accent"
 bspwm_nbc="$background"
-bspwm_abc="$color5"
+bspwm_abc="$color4"
 bspwm_pfc="$color2"
 bspwm_border='1'
 bspwm_gap='10'
